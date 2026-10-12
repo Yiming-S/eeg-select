@@ -1,0 +1,158 @@
+{
+  "paper_title": "Small calibration cohorts do not reliably select motor-imagery EEG systems for new participants",
+  "scope": "Minimal reproduction of saved configuration-selection and statistical results.",
+  "raw_eeg_included": false,
+  "fitted_models_included": false,
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260810,
+  "original_analysis_sources": [
+    {
+      "path": "scripts/fixed_use_outer_fit_analysis.py",
+      "sha256": "f34afa4e8cba35f162af52c543fc71f17a6d6796d3c706bc0c5b9ed80c492e1e"
+    },
+    {
+      "path": "scripts/system_value_selection.py",
+      "sha256": "e67aff799bdadbbf9ea63b6610af0a3f8dad333829fc65b0eed8902c457c7dd6"
+    },
+    {
+      "path": "scripts/stability_aware_system_selection.py",
+      "sha256": "17de81971a81c8f8ba3bf4efc5c8d81c4541f319ba1d8b29b032fa34ad293108"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/calibration.csv.gz",
+      "sha256": "5a854a342f224b6dbfaa1de21dd5a8197242eba3c6b4a32920ac5b101545f57c",
+      "bytes": 127294,
+      "rows": 2280,
+      "source_files": [
+        {
+          "path": "artifacts/system_value_selection/calibration_action_table.csv",
+          "sha256": "967c8676591d3d8c91ed43e4493b33879491c8e981376d99e5eefcd744837155"
+        }
+      ],
+      "preparation": "Preserve all rows and values; rename action to configuration and append the u020 suffix for routed names."
+    },
+    {
+      "path": "data/configurations.csv.gz",
+      "sha256": "66dfaa65fc96ac2a263c548195447fcbdefab01cc9947cc00c78f4fd4962a12e",
+      "bytes": 578753,
+      "rows": 20160,
+      "source_files": [
+        {
+          "path": "artifacts/system_value_selection/held_out_complete_action_participant_repeat.csv",
+          "sha256": "b61cda5c33dd11d831431d5fda5ff674ad06590c127291b9f70d7c910944722c"
+        }
+      ],
+      "preparation": "Preserve all rows and values; rename action to configuration and append the u020 suffix for routed names."
+    },
+    {
+      "path": "data/policies.csv.gz",
+      "sha256": "29b32d32d783024be04149842ceab61ebb7bfedb1ff39827f33a5f7de43550de",
+      "bytes": 589766,
+      "rows": 13440,
+      "source_files": [
+        {
+          "path": "artifacts/stability_aware_system_selection/policy_participant_repeat.csv",
+          "sha256": "77d0f6561b729c1f4422d07734e9a350a5c5c07a024cddfc9251e175f81efb12"
+        }
+      ],
+      "preparation": "Preserve all rows and numerical values; rename action and selected_action columns."
+    },
+    {
+      "path": "data/fixed_use.csv.gz",
+      "sha256": "811678a22299ab62d41c14298707b16a4280b32362ec1a58e05d6fc459d9ad4d",
+      "bytes": 429139,
+      "rows": 11760,
+      "source_files": [
+        {
+          "path": "artifacts/stability_aware_system_selection/held_out_action_grid_participant_repeat.csv",
+          "sha256": "d0064f7a06b906fbe8d0522de60dab86e2b1dad9798c1285ba48f205cea6def5"
+        }
+      ],
+      "preparation": "Retain the CSP-to-EEGNet pair at every saved requested use; preserve row order and numerical values."
+    },
+    {
+      "path": "data/selection_decisions.csv.gz",
+      "sha256": "731bac1e860799b098d6bd8027f3bf50e830236afb4bc71191d0757574ed51d5",
+      "bytes": 13457,
+      "rows": 760,
+      "source_files": [
+        {
+          "path": "artifacts/stability_aware_system_selection/selection_decisions.csv",
+          "sha256": "76c83836d89cb87c53e889fd2acc94c1494539052aff666948ad51916e3dea7d"
+        }
+      ],
+      "preparation": "Preserve the recorded selection decisions; rename selected_action to selected_configuration."
+    },
+    {
+      "path": "data/direct_timing_summary.csv",
+      "sha256": "96b4ff6b39c36ee524c397292368a4a8e7ee232dc12b961a058c0c1b55ae24f2",
+      "bytes": 4322,
+      "rows": 9,
+      "source_files": [
+        {
+          "path": "artifacts/csp_eegnet_use_rate_timing/timing_direct_vs_anchor_summary.csv",
+          "sha256": "83559f16baad5573d01844e7bf8e75eef9ec54391ecc946c523d7f3638b55fdf"
+        }
+      ],
+      "preparation": "Preserve the published direct timing summary at 30%, 40%, and 50% requested use."
+    },
+    {
+      "path": "reference/paired_contrasts.csv",
+      "sha256": "d1c91f488da968d98e3898bac6ed20891dba46bd7a15800408874f1f42c55e75",
+      "bytes": 2667,
+      "rows": 21,
+      "source_files": [
+        {
+          "path": "artifacts/fixed_use_outer_fit/key_outer_fit_contrasts.csv",
+          "sha256": "1262fb90925d37962b6489dfaa95a7ab4c91d485610ed022e14a5bce792eb337"
+        }
+      ],
+      "preparation": "Retain contrast identifiers, point estimates, and both recorded confidence intervals."
+    },
+    {
+      "path": "reference/fixed_use_summary.csv",
+      "sha256": "b9995a202fe71cbd50617c4e9264fc3753c0f3917a017eb3de95277bd4739a5a",
+      "bytes": 5412,
+      "rows": 21,
+      "source_files": [
+        {
+          "path": "artifacts/fixed_use_outer_fit/fixed_use_summary.csv",
+          "sha256": "ebaf546b8312a85bc3286f264d6aa445b481dbb9c5cc75ea26adb4f73d6018c4"
+        }
+      ],
+      "preparation": "Retain fixed-use identifiers, mean endpoints, and both recorded confidence intervals."
+    },
+    {
+      "path": "reference/configuration_summary.csv",
+      "sha256": "e31a12cab19470144472cd2fba0c44671fb47b4e615eb481151b205544aa8ea0",
+      "bytes": 7196,
+      "rows": 36,
+      "source_files": [
+        {
+          "path": "artifacts/system_value_selection/system_value_pareto.csv",
+          "sha256": "eb48043f4f3a1b4a0757875cd18d356833d40b349e2b51d912c0933cb87ea7b3"
+        },
+        {
+          "path": "artifacts/directed_pair_selection/test_pair_summary.csv",
+          "sha256": "c08a28635b32f786339c1956acf5e9f11488fe2c0292bf9837b9ddf52d3e00b7"
+        }
+      ],
+      "preparation": "Join recorded complete-configuration endpoints and recorded pairwise diagnostics; omit the separate selected-policy rows and Pareto labels."
+    },
+    {
+      "path": "reference/policy_summary.csv",
+      "sha256": "8fd3c65c4d6f0a0c12fc2078d382d5b6e2c87e0b653f92e4a8f9fcb42e59ff4f",
+      "bytes": 2491,
+      "rows": 24,
+      "source_files": [
+        {
+          "path": "artifacts/stability_aware_system_selection/policy_summary.csv",
+          "sha256": "9cd8e78d0ac10ca933e35c63e993837a57cf62c7ceef8037e63228d5a1042b65"
+        }
+      ],
+      "preparation": "Retain the recorded means for each selection rule."
+    }
+  ]
+}
