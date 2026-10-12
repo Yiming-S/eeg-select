@@ -1,11 +1,11 @@
 cff-version: 1.2.0
 message: "Please cite these materials when reusing the code or derived results."
 type: software
-title: "MI-EEG system selection: minimal reproducibility materials"
+title: "eeg-select: minimal MI-EEG reproducibility materials"
 authors:
   - family-names: Shen
     given-names: Yiming
 version: 1.0.0
 date-released: 2026-10-12
-repository-code: "https://github.com/Yiming-S/mi-eeg-system-selection"
+repository-code: "https://github.com/Yiming-S/eeg-select"
 license: MIT

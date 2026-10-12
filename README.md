@@ -1,4 +1,4 @@
-# MI-EEG system selection
+# eeg-select
 
 Minimal code and derived results for **Small calibration cohorts do not reliably select motor-imagery EEG systems for new participants**, by Yiming Shen.
 
